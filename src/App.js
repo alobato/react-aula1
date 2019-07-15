@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Card from './components/Card'
 
-function App() {
+const App = () => {
+
+  const [ name, setName ] = useState('')
+
+  const handleClick = () => {
+    alert(`Bom dia ${name}`)
+  }
+
+  const handleNameChange = event => {
+    setName(event.target.value)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>olá</h1>
+
+      <Card name='aaaa' />
+
+      <p><input placeholder='Nome:' onChange={handleNameChange} /></p>
+      <button onClick={handleClick}>Clique aqui</button>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
